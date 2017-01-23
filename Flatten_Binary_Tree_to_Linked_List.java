@@ -6,21 +6,27 @@ package LeetCode;
 public class Flatten_Binary_Tree_to_Linked_List {
 
     // nicer coding style
-    public void flatten2(TreeNode root) {
-        if (root == null) return;
+    public class Solution {
+        public void flatten(TreeNode root) {
+            if( root == null )
+                return;
 
-        TreeNode left = root.left;
-        TreeNode right = root.right;
+            TreeNode left = root.left;
+            TreeNode right = root.right;
 
-        root.left = null;
+            root.left = null;
 
-        flatten2(left);
-        flatten2(right);
+            flatten( left );
+            flatten( right );
 
-        root.right = left;
-        TreeNode cur = root;
-        while (cur.right != null) cur = cur.right;
-        cur.right = right;
+            // left是flatten后的, 把left放到root.right
+            // 然后走到root.right的最后, 接上之前的right
+            root.right = left;
+            TreeNode cur = root;
+            while( cur.right != null )
+                cur = cur.right;
+            cur.right = right;
+        }
     }
 
 

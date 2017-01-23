@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Word_Break_139 {
 
-    public class Solution {
+    public class Solution_DP {
         public boolean wordBreak(String s, List<String> wordDict) {
 
             boolean[] dp = new boolean[s.length() + 1 ];

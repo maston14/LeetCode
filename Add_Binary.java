@@ -19,7 +19,9 @@ public class Add_Binary {
 
                 int val_a = i >= 0 ? ch_a[i--] - '0' : 0;
                 int val_b = j >= 0 ? ch_b[j--] - '0' : 0;
+
                 int t = val_a + val_b + carry;
+
                 ans.append( t % 2 );
                 carry = t / 2;
             }

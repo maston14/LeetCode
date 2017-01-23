@@ -34,24 +34,24 @@ public class Validate_Binary_Search_Tree {
     public class Solution2 {
         public boolean isValidBST(TreeNode root) {
 
-            if(root == null)
+            if( root == null )
                 return true;
 
-            if(root.left != null){
+            if( root.left != null ) {
                 TreeNode t = root.left;
-                while(t.right != null)
+                while( t.right != null )
                     t = t.right;
-                if(t.val >= root.val)
+                if( t.val >= root.val )
                     return false;
             }
-            if(root.right != null){
+            if( root.right != null ){
                 TreeNode t = root.right;
-                while(t.left != null)
+                while( t.left != null )
                     t = t.left;
-                if(t.val <= root.val)
+                if( t.val <= root.val )
                     return false;
             }
-            return isValidBST(root.left) && isValidBST(root.right);
+            return isValidBST( root.left ) && isValidBST( root.right );
         }
     }
 }
