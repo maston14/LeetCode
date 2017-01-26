@@ -5,13 +5,13 @@ package LeetCode;
  */
 public class Path_Sum {
 
-    public boolean hasPathSum(TreeNode root, int sum) {
-        if(root == null) return false;
+    public boolean hasPathSum( TreeNode root, int sum ) {
+        if ( root == null ) return false;
         sum -= root.val;
-        if(root.left == null && root.right == null && sum == 0)
+        if ( root.left == null && root.right == null && sum == 0 )
             return true;
-        else{
-            return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);
+        else {
+            return hasPathSum( root.left, sum ) || hasPathSum( root.right, sum );
         }
     }
 

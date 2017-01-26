@@ -8,7 +8,7 @@ import java.util.Deque;
  */
 public class Decode_String_394 {
 
-    public String decodeString(String s) {
+    public String decodeString( String s ) {
 
         Deque<Integer> count = new ArrayDeque<>();
         Deque<StringBuilder> chars = new ArrayDeque<>();

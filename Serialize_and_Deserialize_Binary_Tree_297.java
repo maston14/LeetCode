@@ -21,25 +21,25 @@ public class Serialize_and_Deserialize_Binary_Tree_297 {
     public class Codec_PreOrder_Recursive {
 
         // Encodes a tree to a single string.
-        public String serialize(TreeNode root) {
+        public String serialize( TreeNode root ) {
             StringBuilder sb = new StringBuilder();
             preorder( root, sb );
             return sb.deleteCharAt( sb.length() - 1 ).toString();
         }
 
         // Decodes your encoded data to tree.
-        public TreeNode deserialize(String data) {
-            String[] nodes = data.split(",");
+        public TreeNode deserialize( String data ) {
+            String[] nodes = data.split( "," );
             Deque<String> queue = new ArrayDeque<>();
-            for( String s : nodes ) {
+            for ( String s : nodes ) {
                 queue.offer( s );
             }
             return buildTree( queue );
         }
 
         public void preorder( TreeNode node, StringBuilder sb ) {
-            if( node == null ) {
-                sb.append("#,");
+            if ( node == null ) {
+                sb.append( "#," );
                 return;
             }
             sb.append( node.val + "," );
@@ -49,9 +49,9 @@ public class Serialize_and_Deserialize_Binary_Tree_297 {
 
         public TreeNode buildTree( Deque<String> queue ) {
             String cur = queue.poll();
-            if( cur.equals("#") ) {
+            if ( cur.equals( "#" ) ) {
                 return null;
-            }else{
+            } else {
                 TreeNode node = new TreeNode( Integer.valueOf( cur ) );
                 node.left = buildTree( queue );
                 node.right = buildTree( queue );

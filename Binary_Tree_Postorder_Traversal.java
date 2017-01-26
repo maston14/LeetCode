@@ -25,37 +25,34 @@ public class Binary_Tree_Postorder_Traversal {
     3.如果prev是curr的右孩子，
         我们正在从右子树向上遍历。打印curr的值并弹出栈顶元素。
      */
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal( TreeNode root ) {
         List<Integer> list = new ArrayList<>();
-        if(root != null){
+        if ( root != null ) {
             Deque<TreeNode> st = new ArrayDeque<>();
             TreeNode prev = null;
-            st.push(root);
-            while(st.size() > 0){
+            st.push( root );
+            while ( st.size() > 0 ) {
                 TreeNode cur = st.peek();
-                if( prev == null || prev.left == cur || prev.right == cur){
-                    if(cur.left != null)
-                        st.push(cur.left);
-                    else if(cur.right != null)
-                        st.push(cur.right);
+                if ( prev == null || prev.left == cur || prev.right == cur ) {
+                    if ( cur.left != null )
+                        st.push( cur.left );
+                    else if ( cur.right != null )
+                        st.push( cur.right );
                     else
-                        list.add(st.pop().val);
-                }else if(cur.left == prev){
-                    if(cur.right != null)
-                        st.push(cur.right);
+                        list.add( st.pop().val );
+                } else if ( cur.left == prev ) {
+                    if ( cur.right != null )
+                        st.push( cur.right );
                     else
-                        list.add(st.pop().val);
-                }else if(cur.right == prev){
-                    list.add(st.pop().val);
+                        list.add( st.pop().val );
+                } else if ( cur.right == prev ) {
+                    list.add( st.pop().val );
                 }
                 prev = cur;
             }
         }
         return list;
     }
-
-
-
 
 
     /* two stacks
@@ -66,22 +63,22 @@ public class Binary_Tree_Postorder_Traversal {
     当所有元素都压入stk2后，依次弹出stk2的栈顶结点，并访问之。
     第一个栈的入栈顺序是：根结点，左孩子和右孩子；于是，压入第二个栈的顺序是：根结点，右孩子和左孩子。因此，弹出的顺序就是：左孩子，右孩子和根结点。
     */
-    public List<Integer> postorderTraversal_twoStack(TreeNode root) {
+    public List<Integer> postorderTraversal_twoStack( TreeNode root ) {
         List<Integer> list = new ArrayList<>();
-        if(root != null){
+        if ( root != null ) {
             Deque<TreeNode> st1 = new ArrayDeque<>();
             Deque<TreeNode> st2 = new ArrayDeque<>();
-            st1.push(root);
-            while(st1.size() > 0){
+            st1.push( root );
+            while ( st1.size() > 0 ) {
                 TreeNode t = st1.pop();
-                st2.push(t);
-                if(t.left != null)
-                    st1.push(t.left);
-                if(t.right != null)
-                    st1.push(t.right);
+                st2.push( t );
+                if ( t.left != null )
+                    st1.push( t.left );
+                if ( t.right != null )
+                    st1.push( t.right );
             }
-            while(st2.size() > 0){
-                list.add(st2.pop().val);
+            while ( st2.size() > 0 ) {
+                list.add( st2.pop().val );
             }
         }
         return list;

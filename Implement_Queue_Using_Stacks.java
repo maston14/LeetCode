@@ -13,23 +13,24 @@ public class Implement_Queue_Using_Stacks {
         Deque<Integer> stack = new ArrayDeque<>();
         Deque<Integer> aux = new ArrayDeque<>();
         int head;
+
         // Push element x to the back of queue.
-        public void push(int x) {
-            if(stack.size() == 0)
+        public void push( int x ) {
+            if ( stack.size() == 0 )
                 head = x;
-            stack.push(x);
+            stack.push( x );
         }
 
         // Removes the element from in front of queue.
         public void pop() {
-            while(stack.size() > 1){
-                aux.push(stack.pop());
+            while ( stack.size() > 1 ) {
+                aux.push( stack.pop() );
             }
             stack.pop();
-            if(aux.size() > 0)
+            if ( aux.size() > 0 )
                 head = aux.peek();
-            while(aux.size()>0)
-                stack.push(aux.pop());
+            while ( aux.size() > 0 )
+                stack.push( aux.pop() );
         }
 
         // Get the front element.

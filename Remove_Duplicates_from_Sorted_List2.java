@@ -8,21 +8,21 @@ public class Remove_Duplicates_from_Sorted_List2 {
 
     // 2个pointer
     public class Solution_Shorter {
-        public ListNode deleteDuplicates(ListNode head) {
-            if(head == null)
+        public ListNode deleteDuplicates( ListNode head ) {
+            if ( head == null )
                 return head;
 
-            ListNode dummy = new ListNode(0);
+            ListNode dummy = new ListNode( 0 );
             dummy.next = head;
 
             ListNode prev = dummy;
             ListNode cur = dummy.next;
 
-            while(cur != null){
-                while(cur.next != null && cur.val == cur.next.val)
+            while ( cur != null ) {
+                while ( cur.next != null && cur.val == cur.next.val )
                     cur = cur.next;
 
-                if(prev.next == cur)
+                if ( prev.next == cur )
                     prev = cur;
                 else
                     prev.next = cur.next;
@@ -34,32 +34,31 @@ public class Remove_Duplicates_from_Sorted_List2 {
     }
 
 
-
     // 3个pointer
     public class Solution_Origin {
-        public ListNode deleteDuplicates(ListNode head) {
-            if(head == null)
+        public ListNode deleteDuplicates( ListNode head ) {
+            if ( head == null )
                 return head;
 
-            ListNode dummy = new ListNode(0);
+            ListNode dummy = new ListNode( 0 );
             dummy.next = head;
 
             ListNode prev = dummy;
             ListNode start = dummy.next;
             ListNode end = start.next;
 
-            while(start != null && end != null){
-                if(start.val != end.val){
+            while ( start != null && end != null ) {
+                if ( start.val != end.val ) {
                     prev = start;
                     start = end;
                     end = end.next;
-                }else{
-                    while(end != null && end.val == start.val){
+                } else {
+                    while ( end != null && end.val == start.val ) {
                         end = end.next;
                     }
-                    if(end == null)
+                    if ( end == null )
                         prev.next = null;
-                    else{
+                    else {
                         prev.next = end;
                         start = end;
                         end = end.next;

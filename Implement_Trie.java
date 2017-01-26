@@ -11,6 +11,7 @@ public class Implement_Trie {
     class TrieNode {
         TrieNode[] map;
         Boolean isEnd;
+
         // Initialize your data structure here.
         public TrieNode() {
             map = new TrieNode[26];
@@ -26,28 +27,28 @@ public class Implement_Trie {
         }
 
         // Inserts a word into the trie.
-        public void insert(String word) {
+        public void insert( String word ) {
             char[] ch_a = word.toCharArray();
             TrieNode t = root;
-            for(char ch : ch_a){
-                if(t.map[ch-'a'] != null){
-                    t = t.map[ch-'a'];
-                }else{
-                    t.map[ch-'a'] = new TrieNode();
-                    t = t.map[ch-'a'];
+            for ( char ch : ch_a ) {
+                if ( t.map[ch - 'a'] != null ) {
+                    t = t.map[ch - 'a'];
+                } else {
+                    t.map[ch - 'a'] = new TrieNode();
+                    t = t.map[ch - 'a'];
                 }
             }
             t.isEnd = true;
         }
 
         // Returns if the word is in the trie.
-        public boolean search(String word) {
+        public boolean search( String word ) {
             char[] ch_a = word.toCharArray();
             TrieNode t = root;
-            for(char ch : ch_a){
-                if(t.map[ch-'a'] != null){
-                    t = t.map[ch-'a'];
-                }else
+            for ( char ch : ch_a ) {
+                if ( t.map[ch - 'a'] != null ) {
+                    t = t.map[ch - 'a'];
+                } else
                     return false;
             }
             return t.isEnd;
@@ -55,20 +56,20 @@ public class Implement_Trie {
 
         // Returns if there is any word in the trie
         // that starts with the given prefix.
-        public boolean startsWith(String prefix) {
+        public boolean startsWith( String prefix ) {
             char[] ch_a = prefix.toCharArray();
             TrieNode t = root;
-            for(char ch : ch_a){
-                if(t.map[ch-'a'] != null){
-                    t = t.map[ch-'a'];
-                }else
+            for ( char ch : ch_a ) {
+                if ( t.map[ch - 'a'] != null ) {
+                    t = t.map[ch - 'a'];
+                } else
                     return false;
             }
-            if(t.isEnd)
+            if ( t.isEnd )
                 return true;
 
-            for(TrieNode tn : t.map)
-                if(tn != null)
+            for ( TrieNode tn : t.map )
+                if ( tn != null )
                     return true;
 
             return false;

@@ -6,18 +6,19 @@ package LeetCode;
 public class Convert_Sorted_List_to_Binary_Search_Tree {
 
     public class Solution {
-        public TreeNode sortedListToBST(ListNode head) {
-            if( head == null ) return null;
-            return helper( head, null);
+        public TreeNode sortedListToBST( ListNode head ) {
+            if ( head == null ) return null;
+            return helper( head, null );
         }
-        public TreeNode helper( ListNode head, ListNode tail) {
+
+        public TreeNode helper( ListNode head, ListNode tail ) {
 
             ListNode fast = head;
             ListNode slow = head;
 
-            if( head == tail ) return null;
+            if ( head == tail ) return null;
 
-            while( fast != tail && fast.next != tail ){
+            while ( fast != tail && fast.next != tail ) {
                 fast = fast.next.next;
                 slow = slow.next;
             }

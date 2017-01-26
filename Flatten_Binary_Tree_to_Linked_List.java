@@ -7,8 +7,8 @@ public class Flatten_Binary_Tree_to_Linked_List {
 
     // nicer coding style
     public class Solution {
-        public void flatten(TreeNode root) {
-            if( root == null )
+        public void flatten( TreeNode root ) {
+            if ( root == null )
                 return;
 
             TreeNode left = root.left;
@@ -23,7 +23,7 @@ public class Flatten_Binary_Tree_to_Linked_List {
             // 然后走到root.right的最后, 接上之前的right
             root.right = left;
             TreeNode cur = root;
-            while( cur.right != null )
+            while ( cur.right != null )
                 cur = cur.right;
             cur.right = right;
         }
@@ -32,26 +32,26 @@ public class Flatten_Binary_Tree_to_Linked_List {
 
     // 前序遍历,每次先把right存下来,对left进行flatten,然后把root.right = root.left
     // 然后从新的右树走,把旧的right放到新的right的末尾,然后对旧的右树进行flatten
-    public void flatten(TreeNode root) {
-        if(root == null) return;
-        if(root.left == null && root.right == null) return;
+    public void flatten( TreeNode root ) {
+        if ( root == null ) return;
+        if ( root.left == null && root.right == null ) return;
 
         TreeNode r = root.right;
 
-        flatten(root.left);
+        flatten( root.left );
 
         root.right = root.left;
         root.left = null;
 
         TreeNode t = root;
 
-        while(t.right != null)
+        while ( t.right != null )
             t = t.right;
 
-        if(t != null)
+        if ( t != null )
             t.right = r;
 
-        flatten(r);
+        flatten( r );
     }
 
 

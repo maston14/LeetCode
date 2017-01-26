@@ -9,13 +9,13 @@ public class LRU_Cache {
 
     public class LRUCache {
 
-        class Node{
+        class Node {
             int key;
             int val;
             Node pre;
             Node next;
 
-            public Node(int key, int value){
+            public Node( int key, int value ) {
                 this.key = key;
                 this.val = value;
             }
@@ -24,64 +24,64 @@ public class LRU_Cache {
         // 维护一个链表和一个map, map用来快速判断是否hit, 链表用来存访问的时间顺序, 链表的head就是最老的cache, 每次满了就从头开始删
         int capacity;
         HashMap<Integer, Node> map = new HashMap<Integer, Node>();
-        Node head=null;
-        Node end=null;
+        Node head = null;
+        Node end = null;
 
-        public LRUCache(int capacity) {
+        public LRUCache( int capacity ) {
             this.capacity = capacity;
         }
 
-        public int get(int key) {
-            if(map.containsKey(key)){
-                Node n = map.get(key);
-                remove(n);
-                setHead(n);
+        public int get( int key ) {
+            if ( map.containsKey( key ) ) {
+                Node n = map.get( key );
+                remove( n );
+                setHead( n );
                 return n.val;
-            }else
+            } else
                 return -1;
         }
 
-        public void set(int key, int value) {
-            if(map.containsKey(key)){
-                Node n = map.get(key);
-                remove(n);
+        public void set( int key, int value ) {
+            if ( map.containsKey( key ) ) {
+                Node n = map.get( key );
+                remove( n );
                 n.val = value;
-                setHead(n);
-            }else{
-                Node newNode = new Node(key,value);
-                if(map.size() >= capacity){
-                    map.remove(end.key);
-                    remove(end);
+                setHead( n );
+            } else {
+                Node newNode = new Node( key, value );
+                if ( map.size() >= capacity ) {
+                    map.remove( end.key );
+                    remove( end );
                 }
-                setHead(newNode);
-                map.put(key,newNode);
+                setHead( newNode );
+                map.put( key, newNode );
             }
         }
 
-        public void remove(Node n){
-            if(n.pre != null){
+        public void remove( Node n ) {
+            if ( n.pre != null ) {
                 n.pre.next = n.next;
-            }else{
+            } else {
                 head = n.next;
             }
 
-            if(n.next != null){
+            if ( n.next != null ) {
                 n.next.pre = n.pre;
-            }else{
+            } else {
                 end = n.pre;
             }
         }
 
-        public void setHead(Node n) {
+        public void setHead( Node n ) {
             n.next = head;
             n.pre = null;
 
-            if(head != null){
+            if ( head != null ) {
                 head.pre = n;
             }
             head = n;
 
-            if(end == null){
+            if ( end == null ) {
                 end = head;
             }
         }

@@ -18,12 +18,12 @@ public class Excel_Sheet_Column_Title {
      */
 
     public class Solution {
-        public String convertToTitle(int n) {
+        public String convertToTitle( int n ) {
             StringBuilder sb = new StringBuilder();
-            while( n > 0 ){
+            while ( n > 0 ) {
                 // 先减1,再求余, 解决余数为0的问题
                 n--;
-                sb.append((char)('A' + n % 26));
+                sb.append( (char) ( 'A' + n % 26 ) );
                 n /= 26;
             }
 

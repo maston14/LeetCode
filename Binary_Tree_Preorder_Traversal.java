@@ -11,22 +11,22 @@ import java.util.List;
 public class Binary_Tree_Preorder_Traversal {
 
 
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal( TreeNode root ) {
 
         List<Integer> list = new ArrayList<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
 
-        if( root != null )
+        if ( root != null )
             stack.push( root );
 
-        while( stack.size() > 0){
+        while ( stack.size() > 0 ) {
             TreeNode t = stack.pop();
             list.add( t.val );
             // 先推右儿子
-            if( t.right != null )
+            if ( t.right != null )
                 stack.push( t.right );
             // 再推左儿子
-            if( t.left != null )
+            if ( t.left != null )
                 stack.push( t.left );
         }
 

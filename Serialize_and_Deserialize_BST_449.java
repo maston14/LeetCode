@@ -21,39 +21,40 @@ public class Serialize_and_Deserialize_BST_449 {
      */
     public class Codec {
 
-        public String serialize(TreeNode root) {
+        public String serialize( TreeNode root ) {
             StringBuilder sb = new StringBuilder();
             preorder( root, sb );
             return sb.toString();
         }
 
         // Decodes your encoded data to tree.
-        public TreeNode deserialize(String data) {
-            if( data == null || data.equals( "" ) ) return null;
-            String[] nodes = data.split(",");
+        public TreeNode deserialize( String data ) {
+            if ( data == null || data.equals( "" ) ) return null;
+            String[] nodes = data.split( "," );
             Deque<String> queue = new ArrayDeque<>();
             queue.addAll( Arrays.asList( nodes ) );
             return buildTree( queue );
         }
 
         public void preorder( TreeNode node, StringBuilder sb ) {
-            if( node == null )
+            if ( node == null )
                 return;
-            sb.append( node.val + ",");
+            sb.append( node.val + "," );
             preorder( node.left, sb );
             preorder( node.right, sb );
         }
 
         public TreeNode buildTree( Deque<String> nodes ) {
 
-            if( nodes.size() == 0 )
+            if ( nodes.size() == 0 )
                 return null;
 
             int cur_val = Integer.valueOf( nodes.poll() );
             TreeNode cur = new TreeNode( cur_val );
+
             // a new queue for nodes that are smaller than the cur
             Deque<String> left_nodes = new ArrayDeque<>();
-            while( nodes.size() > 0 && cur_val > Integer.valueOf( nodes.peek() ) ) {
+            while ( nodes.size() > 0 && cur_val > Integer.valueOf( nodes.peek() ) ) {
                 left_nodes.offer( nodes.poll() );
             }
 

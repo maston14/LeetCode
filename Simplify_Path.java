@@ -23,29 +23,29 @@ In this case, you should ignore redundant slashes and return "/home/foo".
 public class Simplify_Path {
 
     public class Solution {
-        public String simplifyPath(String path) {
+        public String simplifyPath( String path ) {
 
-            String[] items = path.split("/+");
+            String[] items = path.split( "/+" );
             Deque<String> stack = new ArrayDeque<>();
 
-            for( String s : items ) {
-                if( s.equals("") || s.equals(".") )
+            for ( String s : items ) {
+                if ( s.equals( "" ) || s.equals( "." ) )
                     continue;
-                else if( s.equals("..") ) {
-                    if( stack.size() > 0 ) {
+                else if ( s.equals( ".." ) ) {
+                    if ( stack.size() > 0 ) {
                         stack.pop();
                     }
-                }else {
-                    stack.push(s);
+                } else {
+                    stack.push( s );
                 }
             }
 
-            if( stack.size() == 0 ) {
+            if ( stack.size() == 0 ) {
                 return "/";
-            }else {
+            } else {
                 StringBuilder sb = new StringBuilder();
-                while( stack.size() > 0 ) {
-                    sb.insert(0, "/"+stack.pop() );
+                while ( stack.size() > 0 ) {
+                    sb.insert( 0, "/" + stack.pop() );
                 }
                 return sb.toString();
             }

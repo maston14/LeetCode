@@ -21,57 +21,57 @@ public class Ugly_Number2 {
      */
 
 
-    public int nthUglyNumber(int n) {
+    public int nthUglyNumber( int n ) {
         int[] ugly = new int[n];
         ugly[0] = 1;
         int index1 = 0, index2 = 0, index3 = 0;
-        for(int i = 1; i < n; i++){
-            int t1 = ugly[index1]*2;
-            int t2 = ugly[index2]*3;
-            int t3 = ugly[index3]*5;
-            int min = Math.min(Math.min(t1,t2),t3);
+        for ( int i = 1; i < n; i++ ) {
+            int t1 = ugly[index1] * 2;
+            int t2 = ugly[index2] * 3;
+            int t3 = ugly[index3] * 5;
+            int min = Math.min( Math.min( t1, t2 ), t3 );
             ugly[i] = min;
-            if(t1 == min)
+            if ( t1 == min )
                 index1++;
-            if(t2 == min)
+            if ( t2 == min )
                 index2++;
-            if(t3 == min)
+            if ( t3 == min )
                 index3++;
         }
-        return ugly[n-1];
+        return ugly[n - 1];
     }
 
 
     // more formal expression
-    public int nthUglyNumber_Formal(int n) {
+    public int nthUglyNumber_Formal( int n ) {
         int[] ugly = new int[n];
 
-        int[] primes = new int[]{2,3,5};
+        int[] primes = new int[]{2, 3, 5};
         int[] index = new int[3];
         int[] candidate = new int[3];
 
-        for(int i = 0; i < 3; i++)
+        for ( int i = 0; i < 3; i++ )
             candidate[i] = primes[i];
 
         ugly[0] = 1;
 
-        for(int i=1;i<n;i++){
+        for ( int i = 1; i < n; i++ ) {
             int min = candidate[0];
-            for(int j = 1; j < 3; j++)
-                if(candidate[j] < min)
+            for ( int j = 1; j < 3; j++ )
+                if ( candidate[j] < min )
                     min = candidate[j];
 
             ugly[i] = min;
 
-            for(int j = 0; j < 3; j++){
-                if(candidate[j] == min){
+            for ( int j = 0; j < 3; j++ ) {
+                if ( candidate[j] == min ) {
                     index[j]++;
-                    candidate[j] = primes[j]*ugly[index[j]];
+                    candidate[j] = primes[j] * ugly[index[j]];
                 }
 
             }
         }
-        return ugly[n-1];
+        return ugly[n - 1];
     }
 
 }

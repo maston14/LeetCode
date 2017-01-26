@@ -16,13 +16,13 @@ public class Rotate_List {
 
     // 搞成一个cycle, 找地方断开
     public class Solution_Cycle {
-        public ListNode rotateRight(ListNode head, int k) {
-            if(head == null)
+        public ListNode rotateRight( ListNode head, int k ) {
+            if ( head == null )
                 return head;
 
             int len = 1;
             ListNode p = head;
-            while( p.next != null){
+            while ( p.next != null ) {
                 p = p.next;
                 len++;
             }
@@ -32,7 +32,7 @@ public class Rotate_List {
 
             int step = len - k;
             p = head;
-            while( step > 1){
+            while ( step > 1 ) {
                 p = p.next;
                 step--;
             }
@@ -44,27 +44,26 @@ public class Rotate_List {
     }
 
 
-
     // 找三个位置, 然后重新插, 代码繁琐
     public class Solution_Origin {
-        public ListNode rotateRight(ListNode head, int k) {
-            if(head == null)
+        public ListNode rotateRight( ListNode head, int k ) {
+            if ( head == null )
                 return head;
             int len = 1;
             ListNode tail = head;
             // 找原来的尾部
-            while( tail.next != null){
+            while ( tail.next != null ) {
                 len++;
                 tail = tail.next;
             }
             // 要用 %len
             k = k % len;
             ListNode nh = head;
-            if( k > 0){
+            if ( k > 0 ) {
                 // 找到要插得位置
                 int step = len - k;
                 ListNode newEnd = head;
-                while( step > 1 ){
+                while ( step > 1 ) {
                     newEnd = newEnd.next;
                     step--;
                 }

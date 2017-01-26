@@ -16,9 +16,9 @@ public class Flatten_Nested_List_Iterator {
 
         Deque<NestedInteger> stack;
 
-        public NestedIterator(List<NestedInteger> nestedList) {
+        public NestedIterator( List<NestedInteger> nestedList ) {
             stack = new ArrayDeque<>();
-            for( int i = nestedList.size() - 1; i >= 0; i--)
+            for ( int i = nestedList.size() - 1; i >= 0; i-- )
                 stack.push( nestedList.get( i ) );
         }
 
@@ -29,14 +29,14 @@ public class Flatten_Nested_List_Iterator {
 
         @Override
         public boolean hasNext() {
-            while( stack.size() > 0 ) {
+            while ( stack.size() > 0 ) {
                 NestedInteger tmp = stack.peek();
-                if( tmp.isInteger() ) {
+                if ( tmp.isInteger() ) {
                     return true;
                 }
                 tmp = stack.pop();
                 List<NestedInteger> tmpList = tmp.getList();
-                for( int i = tmpList.size() - 1; i >=0; i-- )
+                for ( int i = tmpList.size() - 1; i >= 0; i-- )
                     stack.push( tmpList.get( i ) );
             }
             return false;

@@ -9,15 +9,15 @@ import java.util.List;
 public class Lowest_Common_Ancestor_of_a_Binary_Tree {
 
     // recursive
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public TreeNode lowestCommonAncestor( TreeNode root, TreeNode p, TreeNode q ) {
 
-        if(root == null || root == p || root == q)
+        if ( root == null || root == p || root == q )
             return root;
 
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        TreeNode left = lowestCommonAncestor( root.left, p, q );
+        TreeNode right = lowestCommonAncestor( root.right, p, q );
 
-        if(left != null && right != null)
+        if ( left != null && right != null )
             return root;
 
         return left != null ? left : right;
@@ -27,38 +27,39 @@ public class Lowest_Common_Ancestor_of_a_Binary_Tree {
     // origin, with global var, 先找到一条到p的path,然后从这条path尾开始一个个找,是否是q
     List<TreeNode> path;
 
-    public TreeNode lowestCommonAncestor_Iterative(TreeNode root, TreeNode p, TreeNode q) {
-        if(root == null) return null;
+    public TreeNode lowestCommonAncestor_Iterative( TreeNode root, TreeNode p, TreeNode q ) {
+        if ( root == null ) return null;
         List<TreeNode> temp = new ArrayList<>();
-        findPath(temp, root, p);
-        path.add(p);
-        for(int i = path.size() - 1; i >= 0; i--){
-            TreeNode t = path.get(i);
-            if(findNode(t, q))
+        findPath( temp, root, p );
+        path.add( p );
+        for ( int i = path.size() - 1; i >= 0; i-- ) {
+            TreeNode t = path.get( i );
+            if ( findNode( t, q ) )
                 return t;
         }
         return null;
     }
-    public void findPath(List<TreeNode> temp, TreeNode node, TreeNode target){
-        if(node == null)
+
+    public void findPath( List<TreeNode> temp, TreeNode node, TreeNode target ) {
+        if ( node == null )
             return;
-        if(node == target){
-            path = new ArrayList<>(temp);
+        if ( node == target ) {
+            path = new ArrayList<>( temp );
             return;
-        }else{
-            temp.add(node);
-            findPath(temp, node.left, target);
-            findPath(temp, node.right, target);
-            temp.remove(temp.size() - 1);
+        } else {
+            temp.add( node );
+            findPath( temp, node.left, target );
+            findPath( temp, node.right, target );
+            temp.remove( temp.size() - 1 );
         }
     }
 
-    public boolean findNode(TreeNode node, TreeNode target){
-        if(node == null)
+    public boolean findNode( TreeNode node, TreeNode target ) {
+        if ( node == null )
             return false;
-        if(node == target)
+        if ( node == target )
             return true;
-        return findNode(node.left, target) || findNode(node.right, target);
+        return findNode( node.left, target ) || findNode( node.right, target );
     }
 
 }

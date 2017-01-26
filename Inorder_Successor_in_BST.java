@@ -6,45 +6,43 @@ package LeetCode;
 public class Inorder_Successor_in_BST {
 
     // recursion
-    public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+    public TreeNode inorderSuccessor( TreeNode root, TreeNode p ) {
 
-         if( p!= null && p.right != null){
+        if ( p != null && p.right != null ) {
             TreeNode t = p.right;
-            while(t.left != null)
+            while ( t.left != null )
                 t = t.left;
             return t;
         }
         // if p has no right son
-        while (root != null && root.val <= p.val)
+        while ( root != null && root.val <= p.val )
             root = root.right;
-        if (root == null)
+        if ( root == null )
             return null;
-        TreeNode left = inorderSuccessor(root.left, p);
-        return (left != null && left.val > p.val) ? left : root;
+        TreeNode left = inorderSuccessor( root.left, p );
+        return ( left != null && left.val > p.val ) ? left : root;
     }
 
 
-
     // iterative
-    public TreeNode inorderSuccessor_iterative(TreeNode root, TreeNode p) {
-        if(root == null || p == null) return null;
+    public TreeNode inorderSuccessor_iterative( TreeNode root, TreeNode p ) {
+        if ( root == null || p == null ) return null;
 
         // p有right,successor必在p的right中
-        if(p.right != null){
+        if ( p.right != null ) {
             TreeNode t = p.right;
-            while(t.left != null)
+            while ( t.left != null )
                 t = t.left;
             return t;
         }
         // p没有right
         TreeNode res = null;
 
-        while(root!=null) {
-            if(root.val > p.val) {
+        while ( root != null ) {
+            if ( root.val > p.val ) {
                 res = root;
                 root = root.left;
-            }
-            else root = root.right;
+            } else root = root.right;
         }
         return res;
     }

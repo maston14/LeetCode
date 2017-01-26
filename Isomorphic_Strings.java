@@ -8,18 +8,18 @@ import java.util.Map;
  */
 public class Isomorphic_Strings {
 
-    public static String morph(String s){
+    public static String morph( String s ) {
         int count = 0;
-        Map<Character,Integer> map = new HashMap<>();
+        Map<Character, Integer> map = new HashMap<>();
         StringBuilder sb = new StringBuilder();
         char[] c = s.toCharArray();
-        for(int i = 0; i < c.length; i++){
-            if(!map.containsKey(c[i])){
-                map.put(c[i],count);
-                sb.append((char)('a'+count));
+        for ( int i = 0; i < c.length; i++ ) {
+            if ( !map.containsKey( c[i] ) ) {
+                map.put( c[i], count );
+                sb.append( (char) ( 'a' + count ) );
                 count++;
-            }else{
-                sb.append((char)('a'+map.get(c[i])));
+            } else {
+                sb.append( (char) ( 'a' + map.get( c[i] ) ) );
             }
         }
         return sb.toString();

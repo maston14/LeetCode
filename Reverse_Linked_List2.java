@@ -14,17 +14,17 @@ return 1->4->3->2->5->NULL.
  */
 public class Reverse_Linked_List2 {
 
-    public ListNode reverseBetween(ListNode head, int m, int n) {
+    public ListNode reverseBetween( ListNode head, int m, int n ) {
 
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode( 0 );
 
         int step = n - m;
         dummy.next = head;
         ListNode fixed = dummy;
 
         // 走到要reverse的头上
-        while(m > 1){
-            if(fixed == null)
+        while ( m > 1 ) {
+            if ( fixed == null )
                 return dummy.next;
             fixed = fixed.next;
             m--;
@@ -32,7 +32,7 @@ public class Reverse_Linked_List2 {
 
         ListNode cur = fixed.next;
         //每次把一个插到头上
-        while(cur != null && cur.next != null && step > 0){
+        while ( cur != null && cur.next != null && step > 0 ) {
             ListNode temp = cur.next;
             cur.next = temp.next;
             temp.next = fixed.next;

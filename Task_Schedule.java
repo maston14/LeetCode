@@ -18,19 +18,19 @@ public class Task_Schedule {
         Map<Character, Integer> map = new HashMap<>();
         StringBuilder sb = new StringBuilder();
 
-        for( int i = 0; i < ch_a.length; i++ ) {
-            while( map.containsKey( ch_a[i] ) && map.get( ch_a[i] ) + cooldown >= sb.length() ) {
-                sb.append("*");
+        for ( int i = 0; i < ch_a.length; i++ ) {
+            while ( map.containsKey( ch_a[i] ) && map.get( ch_a[i] ) + cooldown >= sb.length() ) {
+                sb.append( "*" );
             }
             sb.append( ch_a[i] );
-            map.put( ch_a[i], sb.length() - 1);
+            map.put( ch_a[i], sb.length() - 1 );
         }
 
         return sb.toString();
     }
 
-    public static void main(String[] args) {
+    public static void main( String[] args ) {
         Task_Schedule t = new Task_Schedule();
-        System.out.println( t.task_Schedule("ABAABB", 2));
+        System.out.println( t.task_Schedule( "ABAABB", 2 ) );
     }
 }

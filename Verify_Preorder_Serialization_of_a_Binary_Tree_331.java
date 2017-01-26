@@ -15,26 +15,26 @@ public class Verify_Preorder_Serialization_of_a_Binary_Tree_331 {
     就是每次碰到 X,#,# 就合并成一个 # 入栈, 如果是一颗树最后应该只剩一个 #
      */
     public class Solution_Stack {
-        public boolean isValidSerialization(String preorder) {
-            if( preorder == null ) {
+        public boolean isValidSerialization( String preorder ) {
+            if ( preorder == null ) {
                 return false;
             }
 
-            String[] nodes = preorder.split(",");
+            String[] nodes = preorder.split( "," );
             Deque<String> stack = new ArrayDeque<>();
 
-            for( String s : nodes ) {
-                while( s.equals("#") && stack.size() > 0 && stack.peek().equals( s ) ) {
+            for ( String s : nodes ) {
+                while ( s.equals( "#" ) && stack.size() > 0 && stack.peek().equals( s ) ) {
                     stack.pop();
-                    if( stack.size() == 0 || stack.peek().equals( "#" ) ) {
+                    if ( stack.size() == 0 || stack.peek().equals( "#" ) ) {
                         return false;
                     }
                     stack.pop();
                 }
-                stack.push(s);
+                stack.push( s );
             }
 
-            return  stack.size() == 1 && "#".equals( stack.peek() );
+            return stack.size() == 1 && "#".equals( stack.peek() );
         }
     }
 
@@ -53,15 +53,15 @@ public class Verify_Preorder_Serialization_of_a_Binary_Tree_331 {
     If a serialization is correct, diff should never be negative and diff will be zero when finished.
      */
     public class Solution_Degree {
-        public boolean isValidSerialization(String preorder) {
-            String[] nodes = preorder.split(",");
+        public boolean isValidSerialization( String preorder ) {
+            String[] nodes = preorder.split( "," );
 
             int diff = 1;
-            for (String node: nodes) {
+            for ( String node : nodes ) {
                 // 除了root, 每个节点有一个 入度
-                if (--diff < 0) return false;
+                if ( --diff < 0 ) return false;
                 // 非null的节点有两个 出度
-                if (!node.equals("#")) diff += 2;
+                if ( !node.equals( "#" ) ) diff += 2;
             }
             return diff == 0;
         }
@@ -70,22 +70,22 @@ public class Verify_Preorder_Serialization_of_a_Binary_Tree_331 {
 
     // 还是stack的写法, 不是很简洁
     public class Solution_Naive {
-        public boolean isValidSerialization(String preorder) {
-            String[] nodes = preorder.split(",");
+        public boolean isValidSerialization( String preorder ) {
+            String[] nodes = preorder.split( "," );
             LinkedList<String> stack = new LinkedList<>();
-            for( String s : nodes ) {
+            for ( String s : nodes ) {
                 stack.add( s );
-                while( stack.size() >= 3
-                        && stack.get( stack.size() - 1 ).equals("#")
-                        && stack.get( stack.size() - 2 ).equals("#")
-                        && !stack.get( stack.size() - 3 ).equals("#") ) {
-                    stack.remove(stack.size()-1);
-                    stack.remove(stack.size()-1);
-                    stack.remove(stack.size()-1);
-                    stack.add("#");
+                while ( stack.size() >= 3
+                        && stack.get( stack.size() - 1 ).equals( "#" )
+                        && stack.get( stack.size() - 2 ).equals( "#" )
+                        && !stack.get( stack.size() - 3 ).equals( "#" ) ) {
+                    stack.remove( stack.size() - 1 );
+                    stack.remove( stack.size() - 1 );
+                    stack.remove( stack.size() - 1 );
+                    stack.add( "#" );
                 }
             }
-            return  stack.size() == 1 && "#".equals( stack.get( 0 ) );
+            return stack.size() == 1 && "#".equals( stack.get( 0 ) );
         }
     }
 

@@ -22,19 +22,19 @@ public class Search_a_2D_Matrix {
      */
 
     public class Solution {
-        public boolean searchMatrix(int[][] matrix, int target) {
+        public boolean searchMatrix( int[][] matrix, int target ) {
             int lenx = matrix.length;
             int leny = matrix[0].length;
-            int start = 0, end = lenx*leny - 1;
-            while(start <= end ){
-                int mid = start + (end - start)/2;
+            int start = 0, end = lenx * leny - 1;
+            while ( start <= end ) {
+                int mid = start + ( end - start ) / 2;
                 // 把这个2维数组看成一个有序的数列
-                int mval = matrix[mid/leny][mid%leny];
-                if(mval == target)
+                int mval = matrix[mid / leny][mid % leny];
+                if ( mval == target )
                     return true;
-                else if(mval < target){
-                    start = mid+1;
-                }else
+                else if ( mval < target ) {
+                    start = mid + 1;
+                } else
                     end = mid - 1;
             }
             return false;
