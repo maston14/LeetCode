@@ -3,7 +3,7 @@ package LeetCode;
 /**
  * Created by YIZHONGQI on 03/11/2016.
  */
-public class Sort_Colors {
+public class Sort_Colors_75 {
 
     // shorter
     public class Solution {

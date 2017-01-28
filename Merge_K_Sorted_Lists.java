@@ -36,7 +36,7 @@ public class Merge_K_Sorted_Lists {
         ListNode ansHead = null;
         ListNode p = null;
 
-        PriorityQueue<ListNode> pq = new PriorityQueue<ListNode>(
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(
                 new Comparator<ListNode>() {
                     public int compare( ListNode a, ListNode b ) {
                         return a.val - b.val;
