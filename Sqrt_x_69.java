@@ -3,7 +3,7 @@ package LeetCode;
 /**
  * Created by YIZHONGQI on 30/11/2016.
  */
-public class Sqrt_x {
+public class Sqrt_x_69 {
 
     // binary search
     public class Solution_Binary_search1 {

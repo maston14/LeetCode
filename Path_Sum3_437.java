@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Created by YIZHONGQI on 07/11/2016.
  */
-public class Path_Sum3 {
+public class Path_Sum3_437 {
 
     // backtracking, with preSum
     public int pathSum_bt( TreeNode root, int sum ) {

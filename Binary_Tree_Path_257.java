@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by YIZHONGQI on 07/11/2016.
  */
-public class Binary_Tree_Path {
+public class Binary_Tree_Path_257 {
 
     public class Solution_StringBuilder {
         public List<String> binaryTreePaths( TreeNode root ) {

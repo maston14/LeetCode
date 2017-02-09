@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by YIZHONGQI on 07/11/2016.
  */
-public class Binary_Watch {
+public class Binary_Watch_401 {
 
     public List<String> readBinaryWatch( int num ) {
         int[] clock = new int[10];

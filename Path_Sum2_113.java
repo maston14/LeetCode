@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by YIZHONGQI on 07/11/2016.
  */
-public class Path_Sum2 {
+public class Path_Sum2_113 {
 
 
     //nicer coding

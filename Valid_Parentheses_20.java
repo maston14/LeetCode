@@ -14,17 +14,16 @@ public class Valid_Parentheses_20 {
             if ( s == null || s.length() == 0 ) return true;
             Deque<Character> stack = new ArrayDeque<>();
 
-            for ( int i = 0; i < s.length(); i++ ) {
-                if ( stack.size() == 0 )
-                    stack.push( s.charAt( i ) );
-                    // ( and ) 相差1, [ and ] ; { and } 相差 2
-                else if ( s.charAt( i ) - stack.peek() == 1 || s.charAt( i ) - stack.peek() == 2 )
+            for( int i = 0; i < s.length(); i++ ) {
+                char cur = s.charAt( i );
+                if( !stack.isEmpty() && ( cur - stack.peek() == 1 || cur - stack.peek() == 2 ) ) {
                     stack.pop();
-                else
-                    stack.push( s.charAt( i ) );
+                }else {
+                    stack.push( cur );
+                }
             }
-
-            return stack.size() == 0;
+            // return true if no open parentheses left in stack
+            return stack.isEmpty();
         }
     }
 

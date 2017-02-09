@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by YIZHONGQI on 05/12/2016.
  */
-public class Maximum_Size_Subarray_Sum_Equals_k {
+public class Maximum_Size_Subarray_Sum_Equals_k_325 {
 
     // much nicer
     // 扫描求和的时候就开始查map, 这样一遍扫完结果也出来了.
