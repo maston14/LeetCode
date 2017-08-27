@@ -9,11 +9,15 @@ public class One_Edit_Distance_161 {
         public boolean isOneEditDistance(String s, String t) {
             for (int i = 0; i < Math.min(s.length(), t.length()); i++) {
                 if (s.charAt(i) != t.charAt(i)) {
-                    if (s.length() == t.length()) // s has the same length as t, so the only possibility is replacing one char in s and t
+                    // s has the same length as t, so the only possibility is replacing one char in s and t
+                    if (s.length() == t.length())
                         return s.substring(i + 1).equals(t.substring(i + 1));
-                    else if (s.length() < t.length()) // t is longer than s, so the only possibility is deleting one char from t
+
+                        // t is longer than s, so the only possibility is deleting one char from t
+                    else if (s.length() < t.length())
                         return s.substring(i).equals(t.substring(i + 1));
-                    else // s is longer than t, so the only possibility is deleting one char from s
+                    else
+                        // s is longer than t, so the only possibility is deleting one char from s
                         return t.substring(i).equals(s.substring(i + 1));
                 }
             }

@@ -3,7 +3,7 @@ package LeetCode;
 /**
  * Created by YIZHONGQI on 21/11/2016.
  */
-public class Search_a_2D_Matrix {
+public class Search_a_2D_Matrix_74 {
 
     /*
     Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:

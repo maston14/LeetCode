@@ -1,6 +1,7 @@
 package LeetCode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by YIZHONGQI on 16/12/2016.
@@ -23,7 +24,7 @@ public class LRU_Cache {
 
         // 维护一个链表和一个map, map用来快速判断是否hit, 链表用来存访问的时间顺序, 链表的head就是最老的cache, 每次满了就从头开始删
         int capacity;
-        HashMap<Integer, Node> map = new HashMap<Integer, Node>();
+        Map<Integer, Node> map = new HashMap<Integer, Node>();
         Node head = null;
         Node end = null;
 
@@ -41,7 +42,7 @@ public class LRU_Cache {
                 return -1;
         }
 
-        public void set( int key, int value ) {
+        public void put( int key, int value ) {
             if ( map.containsKey( key ) ) {
                 Node n = map.get( key );
                 remove( n );

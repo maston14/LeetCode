@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by YIZHONGQI on 29/11/2016.
  */
-public class Distinct_Subsequences {
+public class Distinct_Subsequences_115 {
 
     // dp, 一个二维矩阵,dp[t.length()][s.length]
     // 对于矩阵dp[i][j], 即t到了i位置,s到了j位置,这时去看j-1位置上,i-1匹配了几个
