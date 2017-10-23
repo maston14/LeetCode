@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * Created by YIZHONGQI on 06/11/2016.
  */
-public class Number_of_Islands {
+public class Number_of_Islands_200 {
 
 
     // dfs

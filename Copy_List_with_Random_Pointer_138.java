@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by YIZHONGQI on 18/12/2016.
  */
-public class Copy_List_with_Random_Pointer {
+public class Copy_List_with_Random_Pointer_138 {
 
     // 3pass, O(1) Space
     public class Solution {

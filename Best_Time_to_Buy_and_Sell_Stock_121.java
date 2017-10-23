@@ -5,7 +5,6 @@ package LeetCode;
  */
 public class Best_Time_to_Buy_and_Sell_Stock_121 {
 
-    // dp
     public class Solution_1 {
         public int maxProfit(int[] prices) {
             if( prices == null || prices.length == 0 )
@@ -29,7 +28,7 @@ public class Best_Time_to_Buy_and_Sell_Stock_121 {
             if( prices == null || prices.length == 0 )
                 return 0;
             int ans = 0;
-            int min = Integer.MAX_VALUE;;
+            int min = Integer.MAX_VALUE;
             for( int i = 0; i < prices.length; i++ ) {
                 min = Math.min( min, prices[i] );
                 ans = Math.max( ans, prices[i] - min );

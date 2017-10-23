@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by YIZHONGQI on 08/11/2016.
  */
-public class Two_Sum {
+public class Two_Sum_1 {
 
     public int[] twoSum( int[] nums, int target ) {
         int[] ans = new int[2];

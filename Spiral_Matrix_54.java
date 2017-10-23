@@ -6,9 +6,54 @@ import java.util.List;
 /**
  * Created by YIZHONGQI on 07/11/2016.
  */
-public class SpiralMatrix {
+public class Spiral_Matrix_54 {
 
-    public static List<Integer> spiralOrder( int[][] matrix ) {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res = new ArrayList<Integer>();
+
+        if (matrix.length == 0) {
+            return res;
+        }
+
+        int rowBegin = 0;
+        int rowEnd = matrix.length-1;
+        int colBegin = 0;
+        int colEnd = matrix[0].length - 1;
+
+        while (rowBegin <= rowEnd && colBegin <= colEnd) {
+            // Traverse Right
+            for (int j = colBegin; j <= colEnd; j ++) {
+                res.add(matrix[rowBegin][j]);
+            }
+            rowBegin++;
+
+            // Traverse Down
+            for (int j = rowBegin; j <= rowEnd; j ++) {
+                res.add(matrix[j][colEnd]);
+            }
+            colEnd--;
+
+            if (rowBegin <= rowEnd) {
+                // Traverse Left
+                for (int j = colEnd; j >= colBegin; j --) {
+                    res.add(matrix[rowEnd][j]);
+                }
+            }
+            rowEnd--;
+
+            if (colBegin <= colEnd) {
+                // Traver Up
+                for (int j = rowEnd; j >= rowBegin; j --) {
+                    res.add(matrix[j][colBegin]);
+                }
+            }
+            colBegin ++;
+        }
+
+        return res;
+    }
+
+    public static List<Integer> spiralOrder_Origin( int[][] matrix ) {
         List<Integer> res = new ArrayList<>();
         int m = matrix.length;
         if ( m == 0 ) return null;
@@ -53,7 +98,7 @@ public class SpiralMatrix {
         return res;
     }
 
-    public static List<Integer> spiralOrderWithDir( int[][] matrix ) {
+    public static List<Integer> spiralOrder_WithDir( int[][] matrix ) {
         int dir = 0; // east
         List<Integer> res = new ArrayList<>();
         if ( matrix == null || matrix.length == 0 )

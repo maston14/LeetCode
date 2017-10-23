@@ -21,6 +21,7 @@ public class Sort_Colors_75 {
                 } else if ( nums[i] == 2 ) {
                     int temp = nums[blue];
                     nums[blue--] = nums[i];
+
                     // 跟blue换完以后, 要推一位, 因为可能换过来的是 0 或者 2, 需要再换一次
                     nums[i--] = temp;
                 }

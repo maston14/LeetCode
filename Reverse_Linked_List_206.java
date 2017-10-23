@@ -3,7 +3,7 @@ package LeetCode;
 /**
  * Created by YIZHONGQI on 13/12/2016.
  */
-public class Reverse_Linked_List {
+public class Reverse_Linked_List_206 {
 
 
     //

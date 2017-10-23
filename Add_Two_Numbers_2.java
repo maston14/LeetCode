@@ -3,7 +3,7 @@ package LeetCode;
 /**
  * Created by YIZHONGQI on 08/11/2016.
  */
-public class Add_Two_Numbers {
+public class Add_Two_Numbers_2 {
 
 
     // concise
